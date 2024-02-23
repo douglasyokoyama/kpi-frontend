@@ -1,0 +1,6 @@
+prettier.config.js
+**/*.js
+**/node_modules
+node_modules
+build
+next-env.d.ts
