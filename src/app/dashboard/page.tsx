@@ -13,11 +13,11 @@ import {
 } from '@nivo/bump';
 import axios from 'axios';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 
-export default function Page() {
+function Dashboard() {
   const [isLoading, setIsLoading] = useState(false);
   const [headcount, setHeadcount] = useState<
     Array<BumpSerie<DefaultBumpDatum, BumpSerieExtraProps>>
@@ -110,5 +110,13 @@ export default function Page() {
         <MyResponsiveBump data={turnover} />
       </Box>
     </>
+  );
+}
+
+export default function Page() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <Dashboard />
+    </React.Suspense>
   );
 }
